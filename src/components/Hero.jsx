@@ -21,7 +21,7 @@ export const Hero = () => {
             </div>
 
             <h1 className="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4 uppercase tracking-tighter">
-              National Excellence in <br />
+              National Excellence in  <br />
               <span className="text-blue-700">Quality Management</span>
             </h1>
 
