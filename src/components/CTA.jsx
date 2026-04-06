@@ -52,10 +52,10 @@ export const CTA = () => {
               
               <ul className="space-y-4">
                 {[
-                  { label: "Application Procedures", href: "#" },
-                  { label: "Fee Structure 2026", href: "#" },
-                  { label: "Compliance Checklists", href: "#" },
-                  { label: "Council Bye-Laws", href: "#" }
+                  { label: "Application Procedures", href: "/services" },
+                  { label: "Fee Structure 2026", href: "/services" },
+                  { label: "Compliance Checklists", href: "/services" },
+                  { label: "Council Bye-Laws", href: "/services" }
                 ].map((item, i) => (
                   <li key={i}>
                     <a href={item.href} className="group flex items-center justify-between text-slate-400 hover:text-white transition-colors py-2 border-b border-white/5">
