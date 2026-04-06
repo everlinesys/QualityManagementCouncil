@@ -1,4 +1,5 @@
 import { ShieldCheck, ArrowRight, Award, FileCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -32,13 +33,14 @@ export const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <button className="px-6 py-3 bg-slate-900 text-white rounded-md text-xs font-bold flex items-center gap-2 hover:bg-blue-700 transition-all active:scale-95">
+              <Link to="/contact" className="px-6 py-3 bg-slate-900 text-white rounded-md text-xs font-bold flex items-center gap-2 hover:bg-blue-700 transition-all active:scale-95">
                 Apply for Certification
                 <ArrowRight size={14} />
-              </button>
-              <button className="px-6 py-3 border border-slate-200 text-slate-700 rounded-md text-xs font-bold hover:bg-slate-50 transition-all">
-                Download Bye-laws
-              </button>
+              </Link>
+              <Link to="/contact" className="px-6 py-3 border border-slate-200 text-slate-700 rounded-md text-xs font-bold hover:bg-slate-50 transition-all">
+                Get in Touch
+               
+              </Link>
             </div>
 
             {/* COMPACT STATS */}
