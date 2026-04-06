@@ -1,4 +1,5 @@
 import { MessageSquare, FileText, ArrowRight, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const CTA = () => {
   return (
@@ -31,14 +32,14 @@ export const CTA = () => {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <button className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold flex items-center gap-2 transition-all shadow-lg shadow-blue-600/20 active:scale-95">
+                <Link to="/contact" className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold flex items-center gap-2 transition-all shadow-lg shadow-blue-600/20 active:scale-95">
                   Schedule Consultation
                   <MessageSquare size={18} />
-                </button>
-                <button className="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold flex items-center gap-2 transition-all">
+                </Link>
+                <Link to="/contact" className="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold flex items-center gap-2 transition-all">
                   Access Portal
                   <ArrowRight size={18} />
-                </button>
+                </Link>
               </div>
             </div>
 
