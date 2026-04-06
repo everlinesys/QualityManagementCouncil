@@ -1,135 +1,142 @@
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import React from "react";
+import { Mail, Phone, MapPin, Send, Globe, Clock } from "lucide-react";
 import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 
 export default function Contact() {
-    const contacts = [
-        {
-            id: "CNT-01",
-            title: "General Enquiries",
-            desc: "For all certification, verification, and general assistance queries related to our services.",
-            icon: <Mail size={28} />,
-            value: "support@authority.org",
-            tag: "Primary Channel"
-        },
-        {
-            id: "CNT-02",
-            title: "Official Helpline",
-            desc: "Speak directly with our compliance officers for urgent verification and regulatory support.",
-            icon: <Phone size={28} />,
-            value: "+91 98765 43210",
-            tag: "24/7 Support"
-        },
-        {
-            id: "CNT-03",
-            title: "Head Office",
-            desc: "Visit our administrative office for document verification and in-person consultation.",
-            icon: <MapPin size={28} />,
-            value: "New Delhi, India",
-            tag: "Headquarters"
-        }
-    ];
+    const OFFICIAL_DIGITAL_ID = "918606999888";
 
-    return (<div className="min-w-[100vw] min-h-screen overflow-x-hidden bg-white">
-         <Header />
-        <section className="bg-slate-50 py-24 border-y border-slate-200">
-            <div className="max-w-7xl mx-auto px-6 md:px-10">
-
-                {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                    <div className="max-w-2xl">
-                        <span className="text-blue-700 font-bold text-xs uppercase tracking-[0.2em] mb-3 block">
-                            Official Communication
+    return (
+        <div className="min-w-[100vw] min-h-screen bg-slate-50 font-sans">
+            <Header />
+            
+            {/* 🏛️ INSTITUTIONAL HEADER */}
+            <section className="bg-white py-12 border-b border-slate-200">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="border-l-4 border-blue-800 pl-6">
+                        <span className="text-blue-800 font-bold text-[10px] uppercase tracking-widest mb-2 block">
+                            Department of Coordination
                         </span>
-                        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
-                            Contact & Support <br />
-                            <span className="text-blue-600">Coordination Desk</span>
+                        <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
+                            Contact & Regulatory <span className="text-blue-800">Support Desk</span>
                         </h2>
                     </div>
-                    <p className="text-slate-500 font-medium max-w-xs md:text-right border-l-2 md:border-l-0 md:border-r-2 border-blue-600 px-4">
-                        Reach out to our regulatory support team for any certification or verification assistance.
-                    </p>
                 </div>
+            </section>
 
-                {/* Contact Cards */}
-                <div className="grid md:grid-cols-3 gap-8">
-                    {contacts.map((c, i) => (
-                        <div
-                            key={i}
-                            className="group relative p-8 bg-white rounded-2xl border border-slate-200 hover:border-blue-600 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/5 flex flex-col h-full"
-                        >
-                            {/* Top */}
-                            <div className="flex justify-between items-start mb-8">
-                                <div className="p-4 bg-slate-50 text-slate-900 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                                    {c.icon}
+            <section className="py-16">
+                <div className="max-w-7xl mx-auto px-6">
+                    
+                    {/* 📱 TOP CONTACT CARDS */}
+                    <div className="grid md:grid-cols-3 gap-6 mb-12">
+                        {[
+                            { title: "General Support", icon: <Mail size={20} />, value: "iechelp2@gmail.com", msg: "Enquiry: Support" },
+                            { title: "Verification Cell", icon: <Phone size={20} />, value: "+91 86069 99888", msg: "Enquiry: Verification" },
+                            { title: "Administrative Desk", icon: <Globe size={20} />, value: "iechelp2@gmail.com", msg: "Enquiry: Admin" }
+                        ].map((c, i) => (
+                            <div key={i} className="bg-white p-6 border border-slate-200 rounded-lg shadow-sm group">
+                                <div className="flex items-center gap-4 mb-4">
+                                    <div className="p-3 bg-slate-50 text-blue-800 rounded-lg group-hover:bg-blue-800 group-hover:text-white transition-colors">
+                                        {c.icon}
+                                    </div>
+                                    <h3 className="font-bold text-slate-900">{c.title}</h3>
                                 </div>
-                                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest bg-slate-100 px-2 py-1 rounded">
-                                    {c.id}
-                                </span>
+                                <p className="text-sm font-bold text-blue-900 mb-4">{c.value}</p>
+                                <a 
+                                    href={`https://wa.me/${OFFICIAL_DIGITAL_ID}?text=${encodeURIComponent(c.msg)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2 w-full py-2 bg-blue-800 text-white rounded text-[11px] font-bold uppercase tracking-wider hover:bg-slate-900 transition-all"
+                                >
+                                    <Send size={12} />
+                                    Direct Digital Channel
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* 🗺️ SPLIT SECTION: FORM & MAP */}
+                    <div className="grid lg:grid-cols-2 gap-8 items-start">
+                        
+                        {/* LEFT: OFFICIAL FORM (Now Half-Width on Desktop) */}
+                        <div className="bg-white border border-slate-200 shadow-xl rounded-xl p-8">
+                            <div className="mb-6 border-b border-slate-100 pb-4">
+                                <h3 className="text-xl font-bold text-slate-900 uppercase tracking-tight text-sm">Official Request Form</h3>
+                                <p className="text-[11px] text-slate-500 mt-1">Submit formal documentation requests or complaints below.</p>
                             </div>
 
-                            {/* Content */}
-                            <div className="mb-8 flex-grow">
-                                <span className="text-[11px] font-bold text-blue-600 uppercase mb-2 block">
-                                    {c.tag}
-                                </span>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">
-                                    {c.title}
-                                </h3>
-                                <p className="text-slate-500 text-sm leading-relaxed mb-4">
-                                    {c.desc}
-                                </p>
-                                <p className="text-sm font-semibold text-slate-800">
-                                    {c.value}
-                                </p>
-                            </div>
+                            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    <div className="space-y-1">
+                                        <label className="text-[10px] font-bold uppercase text-slate-400 ml-1">Full Name</label>
+                                        <input type="text" className="w-full p-3 text-sm border border-slate-200 rounded bg-slate-50 focus:ring-1 focus:ring-blue-800 outline-none" placeholder="Required" />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <label className="text-[10px] font-bold uppercase text-slate-400 ml-1">Official Email</label>
+                                        <input type="email" className="w-full p-3 text-sm border border-slate-200 rounded bg-slate-50 focus:ring-1 focus:ring-blue-800 outline-none" placeholder="Required" />
+                                    </div>
+                                </div>
+                                
+                                <div className="space-y-1">
+                                    <label className="text-[10px] font-bold uppercase text-slate-400 ml-1">Subject / Reference No.</label>
+                                    <input type="text" className="w-full p-3 text-sm border border-slate-200 rounded bg-slate-50 focus:ring-1 focus:ring-blue-800 outline-none" />
+                                </div>
 
-                            {/* Action */}
-                            <button className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors pt-6 border-t border-slate-50">
-                                Contact Now
-                                <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                            </button>
+                                <div className="space-y-1">
+                                    <label className="text-[10px] font-bold uppercase text-slate-400 ml-1">Request Summary</label>
+                                    <textarea rows="4" className="w-full p-3 text-sm border border-slate-200 rounded bg-slate-50 focus:ring-1 focus:ring-blue-800 outline-none"></textarea>
+                                </div>
+
+                                <button className="w-full bg-slate-900 text-white py-4 rounded font-bold text-xs uppercase tracking-widest hover:bg-blue-800 transition-all shadow-md">
+                                    Dispatch Official Request
+                                </button>
+                            </form>
                         </div>
-                    ))}
+
+                        {/* RIGHT: MAP & OFFICE INFO */}
+                        <div className="space-y-6">
+                            {/* Embedded Google Map */}
+                            <div className="w-full h-[350px] rounded-xl overflow-hidden border border-slate-200 shadow-inner bg-slate-200">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.119772544275!2d77.2065193!3d28.6111364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5d347eb1d3%3A0xdc2e9aa188a101f!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                                    width="100%" 
+                                    height="100%" 
+                                    style={{ border: 0 }} 
+                                    allowFullScreen="" 
+                                    loading="lazy" 
+                                    referrerPolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+
+                            {/* Office Details */}
+                            <div className="grid md:grid-cols-2 gap-4">
+                                <div className="bg-white p-5 border border-slate-200 rounded-lg">
+                                    <div className="flex items-center gap-2 text-blue-800 mb-2">
+                                        <MapPin size={16} />
+                                        <span className="text-[11px] font-bold uppercase tracking-wider">Secretariat</span>
+                                    </div>
+                                    <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                                        Quality Management Council,<br />
+                                        Administrative Block, New Delhi - 110001
+                                    </p>
+                                </div>
+                                <div className="bg-white p-5 border border-slate-200 rounded-lg">
+                                    <div className="flex items-center gap-2 text-blue-800 mb-2">
+                                        <Clock size={16} />
+                                        <span className="text-[11px] font-bold uppercase tracking-wider">Office Hours</span>
+                                    </div>
+                                    <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                                        Mon - Fri: 09:00 AM - 05:30 PM<br />
+                                        Closed on Public Holidays
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-
-                {/* Contact Form Section */}
-                <div className="mt-20 bg-white p-8 md:p-12 rounded-2xl border shadow-sm">
-                    <h3 className="text-2xl font-bold mb-6 text-slate-900">
-                        Submit an Official Request
-                    </h3>
-
-                    <form className="grid md:grid-cols-2 gap-6">
-                        <input
-                            type="text"
-                            placeholder="Full Name"
-                            className="p-4 border rounded-xl bg-slate-50 focus:ring-2 focus:ring-blue-600 outline-none"
-                        />
-                        <input
-                            type="email"
-                            placeholder="Email Address"
-                            className="p-4 border rounded-xl bg-slate-50 focus:ring-2 focus:ring-blue-600 outline-none"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Subject"
-                            className="p-4 border rounded-xl bg-slate-50 focus:ring-2 focus:ring-blue-600 outline-none md:col-span-2"
-                        />
-                        <textarea
-                            rows="5"
-                            placeholder="Describe your request..."
-                            className="p-4 border rounded-xl bg-slate-50 focus:ring-2 focus:ring-blue-600 outline-none md:col-span-2"
-                        ></textarea>
-
-                        <button className="md:col-span-2 bg-blue-700 text-white py-4 rounded-xl font-bold hover:bg-blue-800 transition-all">
-                            Submit Request
-                        </button>
-                    </form>
-                </div>
-
-            </div>
-        </section>
-        <Footer />
-    </div>
+            </section>
+            <Footer />
+        </div>
     );
-};
+}

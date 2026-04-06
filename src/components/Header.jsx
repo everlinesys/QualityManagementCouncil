@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronRight, Search } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -7,7 +8,7 @@ export default function Header() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Council", href: "/about" },
-    { name: "Certifications", href: "/certifications" },
+    { name: "Certifications", href: "/services?tab=certification" },
     { name: "Public Services", href: "/services" },
     { name: "Contact", href: "/contact" },
   ];
@@ -34,14 +35,14 @@ export default function Header() {
       <div className="w-full px-6 md:px-10 py-5 flex items-center justify-between">
         <div className="flex items-center gap-5">
           {/* LOGO */}
-          <div className="flex items-center gap-4 border-r border-gray-200 pr-5">
+          <Link to="/" className="flex items-center gap-4 border-r border-gray-200 pr-5">
             <img src="/logo.png" alt="QMC Emblem" className="h-12 w-auto object-contain" />
             <img src="/name.png" alt="QMC Emblem" className="h-12 w-auto object-contain" />
             {/* <div className="flex flex-col leading-tight">
               <span className="text-xl font-bold text-slate-900 tracking-tight">QMC India</span>
               <span className="text-[10px] font-bold text-blue-700 uppercase tracking-widest">Quality Management Council</span>
             </div> */}
-          </div>
+          </Link>
 
           {/* TAGLINE (Government Style) */}
           <div className="hidden lg:block text-xs text-slate-500 max-w-[280px] leading-snug">
