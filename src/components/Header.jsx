@@ -67,9 +67,9 @@ export default function Header() {
 
         {/* ACTION BUTTONS */}
         <div className="flex items-center gap-3">
-          <button className="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition">
+          <Link to="/verify" className="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition">
             <Search size={20} />
-          </button>
+          </Link>
           <a
             href="/verify"
             className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-lg hover:bg-blue-800 transition-all shadow-sm active:scale-95"
