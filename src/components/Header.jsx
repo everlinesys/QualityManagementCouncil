@@ -9,6 +9,9 @@ export default function Header() {
     { name: "Home", href: "/" },
     { name: "About Council", href: "/about" },
     { name: "Certifications", href: "/services?tab=certification" },
+    { name: "Excellence", href: "/#excellence" },
+    { name: "Inspired", href: "/#inspired" },
+    { name: "Standards", href: "/#standards" },
     { name: "Public Services", href: "/services" },
     { name: "Contact", href: "/contact" },
   ];

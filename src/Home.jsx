@@ -7,6 +7,8 @@ import { CTA } from "./components/CTA";
 import { Inspired } from "./components/Inspired";
 import { Footer } from "./components/Footer";
 import Header from "./components/Header";
+import { Excellence } from "./components/Excellence";
+import { StandardsCentre } from "./components/StandardsCenter";
 export default function Home() {
     return (
         <div className="min-w-[100vw] min-h-screen overflow-x-hidden bg-white">
@@ -15,7 +17,10 @@ export default function Home() {
             <About />
             <Services />
             <VisionMission />
+            <Excellence/>
+
             <Inspired />
+            <StandardsCentre/>
             <QualityPolicy />
             <CTA />
             <Footer />

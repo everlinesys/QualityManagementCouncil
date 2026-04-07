@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Inspired = () => {
   return (
-    <section className="bg-white py-24 border-y border-slate-200">
+    <section className="bg-white py-24 border-y border-slate-200" id="inspired">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
 
         {/* Header */}
