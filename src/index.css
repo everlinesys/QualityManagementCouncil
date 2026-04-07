@@ -13,8 +13,8 @@
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
@@ -32,6 +32,39 @@
   }
 }
 
+@theme {
+  /* Defining custom animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-bounce-slow: bounce 3s infinite;
+
+  /* Defining the keyframes */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+}
+
+/* Custom Entrance Animations (Fade in up) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
@@ -70,7 +103,6 @@ body {
 h1,
 h2 {
   font-family: var(--heading);
-
 }
 
 h1 {
@@ -90,7 +122,6 @@ h2 {
   }
 }
 
-
 code,
 .counter {
   font-family: var(--mono);
@@ -103,4 +134,38 @@ code {
   font-size: 15px;
   line-height: 135%;
   background: var(--code-bg);
+}
+
+@theme {
+  /* Defining custom animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-bounce-slow: bounce 3s infinite;
+
+  /* Defining the keyframes */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+}
+
+/* Custom Entrance Animations (Fade in up) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
