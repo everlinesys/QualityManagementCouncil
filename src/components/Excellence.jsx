@@ -1,118 +1,157 @@
-import { Landmark, ShieldCheck, TrendingUp, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowUpRight } from "lucide-react";
 
 export const Excellence = () => {
   const phoneNumber = "918606999888";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hi, I want to learn more about the Centre for Banking and Cooperative Excellence.`;
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hi, I want to learn more about the QMC Specialized Centres.`;
+
+  const centres = [
+    {
+      id: "standards",
+      title: "Standards Development & Research",
+      subtitle: "Centre for Standards Development and Quality Research",
+      description: "Dedicated to promoting the development, understanding, and adoption of standards, quality frameworks, and best practices across various sectors.",
+      image: "/research.jpeg",
+      benefits: [
+        "Enhancing Quality and Consistency",
+        "Supporting Innovation and Competitiveness",
+        "Facilitating Global Trade",
+        "Strengthening Regulatory Compliance"
+      ],
+      vision: "To promote a strong culture of standardization, quality research, and innovation.",
+      tag: "Research & Development"
+    },
+    {
+      id: "government",
+      title: "Government Systems & Administration",
+      subtitle: "Centre for Government Systems & Public Administration",
+      description: "Promoting quality management systems, governance frameworks, and institutional capacity development within government departments and public sector organizations.",
+      image: "/govt.jpeg",
+      benefits: [
+        "Enhancing Administrative Efficiency",
+        "Improving Public Service Delivery",
+        "Strengthening Accountability and Transparency",
+        "Supporting Policy Implementation"
+      ],
+      vision: "To strengthen governance, transparency, and service excellence in government institutions.",
+      tag: "Public Sector"
+    },
+    {
+      id: "banking",
+      title: "Banking & Cooperative Excellence",
+      subtitle: "Centre for Banking and Cooperative Excellence",
+      description: "Established to promote quality management systems, governance standards, and institutional capacity development within the banking and cooperative sectors.",
+      image: "/excellence.jpeg",
+      benefits: [
+        "Strengthening Institutional Governance",
+        "Improving Service Quality",
+        "Risk Management and Compliance",
+        "Building Trust and Credibility"
+      ],
+      vision: "To promote excellence, transparency, and sustainable development in banking and cooperatives.",
+      tag: "Financial Sector"
+    }
+  ];
 
   return (
     <section className="bg-white py-24 border-y border-slate-200" id="excellence">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
 
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
           <div className="max-w-3xl">
             <span className="text-blue-700 font-bold text-xs uppercase tracking-[0.2em] mb-3 block">
-              Specialized Initiative
+              Specialized Initiatives
             </span>
-
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
-              Centre for Banking & <br />
-              <span className="text-blue-600">Cooperative Excellence</span>
+              Driving Excellence Through <br />
+              <span className="text-blue-600">Specialized Centres</span>
             </h2>
-
-            <p className="mt-6 text-slate-600 text-sm leading-relaxed max-w-2xl">
-              The Centre for Banking and Cooperative Excellence is a specialized initiative of the
-              Quality Management Council (QMC) established to promote structured management systems,
-              governance standards, and institutional capacity development.
-            </p>
-          </div>
-
-          <div className="hidden md:block text-slate-500 font-medium max-w-xs text-right border-r-2 border-blue-600 pr-6 pb-2">
-            Strengthening financial institutions through governance and global standards.
           </div>
         </div>
 
-        {/* Core Importance Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {[
-            { icon: <ShieldCheck size={26} />, title: "Strengthening Governance", desc: "ISO systems establish clear policies and accountability frameworks ensuring transparency and compliance." },
-            { icon: <Landmark size={26} />, title: "Improving Service Quality", desc: "ISO 9001 enables institutions to deliver consistent, reliable, and customer-focused financial services." },
-            { icon: <TrendingUp size={26} />, title: "Operational Efficiency", desc: "Structured management systems streamline operations and enhance institutional performance." }
-          ].map((item, idx) => (
-            <div key={idx} className="group p-8 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-600 transition-all hover:shadow-xl hover:shadow-blue-900/5">
-              <div className="p-4 bg-white rounded-xl mb-6 w-fit group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-sm">
-                {item.icon}
+        {/* Centres */}
+        <div className="space-y-16">
+          {centres.map((centre, idx) => (
+            <div 
+              key={centre.id}
+              className={`flex flex-col lg:flex-row gap-12 items-center p-8 md:p-12 rounded-[2.5rem] border border-slate-100 ${
+                idx % 2 !== 0 ? "lg:flex-row-reverse bg-slate-50/50" : "bg-white"
+              }`}
+            >
+
+              {/* TEXT */}
+              <div className="flex-1 space-y-8">
+                <div>
+                  <span className="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-[10px] font-black uppercase tracking-widest mb-4">
+                    {centre.tag}
+                  </span>
+
+                  <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
+                    {centre.title}
+                  </h3>
+
+                  <p className="text-blue-600 font-bold text-xs uppercase mb-6">
+                    {centre.subtitle}
+                  </p>
+
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    {centre.description}
+                  </p>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {centre.benefits.map((b, i) => (
+                    <div key={i} className="flex items-center gap-3 text-xs font-bold text-slate-700">
+                      <CheckCircle2 size={16} className="text-blue-600" />
+                      {b}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm italic">
+                  <span className="text-[10px] font-bold text-blue-600 uppercase block mb-2">
+                    Centre Vision
+                  </span>
+                  "{centre.vision}"
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-3">{item.title}</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+
+              {/* 🔥 IMAGE SIDE (REPLACES ICON) */}
+              <div className="w-full lg:w-1/3">
+                <div className="relative rounded-[2rem] overflow-hidden group shadow-xl">
+
+                  <img
+                    src={centre.image}
+                    alt={centre.title}
+                    className="w-full h-72 object-cover grayscale group-hover:grayscale-0 transition duration-500 scale-105 group-hover:scale-110"
+                  />
+
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent" />
+
+                  {/* Label */}
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <span className="text-[10px] uppercase tracking-widest opacity-80">
+                      QMC Centre
+                    </span>
+                    <h4 className="text-sm font-bold">
+                      {centre.tag}
+                    </h4>
+                  </div>
+
+                </div>
+              </div>
+
             </div>
           ))}
         </div>
 
-        {/* Image & Detailed Lists Section */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative group">
-            <div className="absolute -inset-4 bg-blue-100/50 rounded-3xl -z-10 group-hover:bg-blue-100 transition-colors"></div>
-            <img 
-              src="/excellence.jpeg" 
-              alt="Excellence in Banking" 
-              className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
-            />
-          </div>
-
-          <div className="space-y-10">
-            <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-blue-600"></span> Activities of the Centre
-              </h3>
-              <ul className="grid sm:grid-cols-1 gap-4">
-                {[
-                  "Training programs and capacity development",
-                  "ISO-based management system support",
-                  "Advisory for governance improvement",
-                  "Research and knowledge development",
-                  "Institutional strengthening programs"
-                ].map((text, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm text-slate-600">
-                    <CheckCircle2 size={16} className="text-blue-600 shrink-0" />
-                    {text}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="pt-6 border-t border-slate-100">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-blue-600"></span> Why It Matters
-              </h3>
-              <ul className="grid sm:grid-cols-1 gap-4 text-sm text-slate-600">
-                {[
-                  "Enhances trust and credibility",
-                  "Supports risk management frameworks",
-                  "Enables digital transformation",
-                  "Strengthens financial inclusion"
-                ].map((text, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="text-blue-600 font-bold text-lg leading-none mt-1">·</span>
-                    {text}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Vision + WhatsApp Link CTA */}
-        <div className="mt-24 p-10 bg-slate-900 rounded-[2rem] text-white flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 blur-[100px] rounded-full"></div>
-          
-          <div className="max-w-xl relative z-10">
-            <h4 className="text-xl font-bold mb-3 text-blue-400">
-              Vision of the Centre
-            </h4>
-            <p className="text-base text-slate-300 leading-relaxed italic">
-              "To promote excellence, transparency, and sustainable development in the banking
-              and cooperative sectors through internationally recognized standards."
+        {/* CTA */}
+        <div className="mt-24 p-10 bg-slate-900 rounded-[3rem] text-white flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="max-w-xl">
+            <h4 className="text-2xl font-black mb-3">Institutional Support</h4>
+            <p className="text-sm text-slate-400">
+              Connect with our specialized centres to implement internationally recognized systems.
             </p>
           </div>
 
@@ -120,12 +159,10 @@ export const Excellence = () => {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center gap-3 text-blue-400 hover:text-blue-300 text-lg font-bold transition-all relative z-10"
+            className="flex items-center gap-3 text-blue-400 hover:text-blue-300 text-lg font-bold"
           >
-            <span className="border-b-2 border-blue-400/30 group-hover:border-blue-300 pb-1">
-              Connect with the Centre
-            </span>
-            <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            Connect with the Centres
+            <ArrowUpRight size={20} />
           </a>
         </div>
 
