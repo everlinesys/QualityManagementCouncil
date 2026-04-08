@@ -1,4 +1,4 @@
-import { CheckCircle2, ArrowUpRight } from "lucide-react";
+import { CheckCircle2, ArrowUpRight, ShieldCheck, Landmark, BarChart3 } from "lucide-react";
 
 export const Excellence = () => {
   const phoneNumber = "918606999888";
@@ -8,161 +8,147 @@ export const Excellence = () => {
     {
       id: "standards",
       title: "Standards Development & Research",
-      subtitle: "Centre for Standards Development and Quality Research",
-      description: "Dedicated to promoting the development, understanding, and adoption of standards, quality frameworks, and best practices across various sectors.",
+      icon: ShieldCheck,
+      description:
+        "Promoting the development, understanding, and adoption of global standards, quality frameworks, and best practices.",
       image: "/research.jpeg",
-      benefits: [
-        "Enhancing Quality and Consistency",
-        "Supporting Innovation and Competitiveness",
-        "Facilitating Global Trade",
-        "Strengthening Regulatory Compliance"
-      ],
+      benefits: ["Quality Consistency", "Innovation Support", "Global Trade", "Regulatory Compliance"],
       vision: "To promote a strong culture of standardization, quality research, and innovation.",
-      tag: "Research & Development"
+      tag: "Research & Development",
     },
     {
       id: "government",
       title: "Government Systems & Administration",
-      subtitle: "Centre for Government Systems & Public Administration",
-      description: "Promoting quality management systems, governance frameworks, and institutional capacity development within government departments and public sector organizations.",
+      icon: Landmark,
+      description:
+        "Strengthening governance frameworks and institutional capacity within public sector organizations.",
       image: "/govt.jpeg",
-      benefits: [
-        "Enhancing Administrative Efficiency",
-        "Improving Public Service Delivery",
-        "Strengthening Accountability and Transparency",
-        "Supporting Policy Implementation"
-      ],
-      vision: "To strengthen governance, transparency, and service excellence in government institutions.",
-      tag: "Public Sector"
+      benefits: ["Administrative Efficiency", "Public Service Delivery", "Accountability", "Policy Implementation"],
+      vision: "To strengthen governance, transparency, and service excellence.",
+      tag: "Public Sector",
     },
     {
       id: "banking",
       title: "Banking & Cooperative Excellence",
-      subtitle: "Centre for Banking and Cooperative Excellence",
-      description: "Established to promote quality management systems, governance standards, and institutional capacity development within the banking and cooperative sectors.",
+      icon: BarChart3,
+      description:
+        "Enhancing governance, service quality, and risk management within banking and cooperative sectors.",
       image: "/excellence.jpeg",
-      benefits: [
-        "Strengthening Institutional Governance",
-        "Improving Service Quality",
-        "Risk Management and Compliance",
-        "Building Trust and Credibility"
-      ],
-      vision: "To promote excellence, transparency, and sustainable development in banking and cooperatives.",
-      tag: "Financial Sector"
-    }
+      benefits: ["Institutional Governance", "Service Quality", "Risk Management", "Trust & Credibility"],
+      vision: "To promote excellence, transparency, and sustainable financial systems.",
+      tag: "Financial Sector",
+    },
   ];
 
   return (
-    <section className="bg-white py-24 border-y border-slate-200" id="excellence">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+    <section className="bg-white py-28" id="excellence">
+      <div className="max-w-[90rem] mx-auto px-6 md:px-12">
 
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
-          <div className="max-w-3xl">
-            <span className="text-blue-700 font-bold text-xs uppercase tracking-[0.2em] mb-3 block">
-              Specialized Initiatives
-            </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
-              Driving Excellence Through <br />
-              <span className="text-blue-600">Specialized Centres</span>
-            </h2>
-          </div>
+        {/* HEADER */}
+        <div className="max-w-2xl mb-20">
+          <span className="text-blue-600 text-xs font-bold uppercase tracking-widest">
+            Specialized Divisions
+          </span>
+          <h2 className="mt-3 text-3xl font-bold text-slate-900 leading-tight">
+            Centres Driving Institutional Excellence
+          </h2>
+          <p className="mt-4 text-slate-600 text-sm leading-relaxed">
+            Focused hubs designed to elevate standards, governance, and performance across sectors.
+          </p>
         </div>
 
-        {/* Centres */}
-        <div className="space-y-16">
-          {centres.map((centre, idx) => (
-            <div 
+        {/* GRID */}
+        <div className="grid lg:grid-cols-3 gap-10">
+          {centres.map((centre) => (
+            <div
               key={centre.id}
-              className={`flex flex-col lg:flex-row gap-12 items-center p-8 md:p-12 rounded-[2.5rem] border border-slate-100 ${
-                idx % 2 !== 0 ? "lg:flex-row-reverse bg-slate-50/50" : "bg-white"
-              }`}
+              className="group border border-slate-200 rounded-2xl overflow-hidden bg-white hover:shadow-xl transition-all duration-300"
             >
 
-              {/* TEXT */}
-              <div className="flex-1 space-y-8">
-                <div>
-                  <span className="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-[10px] font-black uppercase tracking-widest mb-4">
+              {/* IMAGE */}
+              <div className="relative h-72 overflow-hidden">
+                <img
+                  src={centre.image}
+                  alt={centre.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+
+                {/* overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+                {/* tag */}
+                <div className="absolute top-5 left-5">
+                  <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-white/10 backdrop-blur text-white rounded-full">
                     {centre.tag}
                   </span>
-
-                  <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
-                    {centre.title}
-                  </h3>
-
-                  <p className="text-blue-600 font-bold text-xs uppercase mb-6">
-                    {centre.subtitle}
-                  </p>
-
-                  <p className="text-slate-600 text-sm leading-relaxed">
-                    {centre.description}
-                  </p>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-4">
+                {/* title on image */}
+                <div className="absolute bottom-6 left-6 right-6">
+                  <h3 className="text-lg font-bold text-white leading-snug">
+                    {centre.title}
+                  </h3>
+                </div>
+              </div>
+
+              {/* CONTENT */}
+              <div className="p-8 flex flex-col">
+
+                <div className="flex items-center gap-3 mb-4">
+                  <centre.icon className="w-6 h-6 text-blue-600" />
+                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+                    Core Focus
+                  </span>
+                </div>
+
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  {centre.description}
+                </p>
+
+                {/* benefits */}
+                <div className="grid grid-cols-2 gap-3 mb-8">
                   {centre.benefits.map((b, i) => (
-                    <div key={i} className="flex items-center gap-3 text-xs font-bold text-slate-700">
-                      <CheckCircle2 size={16} className="text-blue-600" />
+                    <div key={i} className="flex items-center gap-2 text-sm text-slate-800 font-medium">
+                      <CheckCircle2 size={14} className="text-blue-600" />
                       {b}
                     </div>
                   ))}
                 </div>
 
-                <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm italic">
-                  <span className="text-[10px] font-bold text-blue-600 uppercase block mb-2">
-                    Centre Vision
+                {/* vision */}
+                <div className="mt-auto border-t pt-6">
+                  <span className="text-[10px] font-bold text-blue-600 uppercase">
+                    Vision
                   </span>
-                  "{centre.vision}"
+                  <p className="text-sm font-semibold text-slate-900 mt-1">
+                    "{centre.vision}"
+                  </p>
                 </div>
+
               </div>
-
-              {/* 🔥 IMAGE SIDE (REPLACES ICON) */}
-              <div className="w-full lg:w-1/3">
-                <div className="relative rounded-[2rem] overflow-hidden group shadow-xl">
-
-                  <img
-                    src={centre.image}
-                    alt={centre.title}
-                    className="w-full h-72 object-cover grayscale group-hover:grayscale-0 transition duration-500 scale-105 group-hover:scale-110"
-                  />
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent" />
-
-                  {/* Label */}
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <span className="text-[10px] uppercase tracking-widest opacity-80">
-                      QMC Centre
-                    </span>
-                    <h4 className="text-sm font-bold">
-                      {centre.tag}
-                    </h4>
-                  </div>
-
-                </div>
-              </div>
-
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-24 p-10 bg-slate-900 rounded-[3rem] text-white flex flex-col md:flex-row items-center justify-between gap-10">
-          <div className="max-w-xl">
-            <h4 className="text-2xl font-black mb-3">Institutional Support</h4>
-            <p className="text-sm text-slate-400">
-              Connect with our specialized centres to implement internationally recognized systems.
+        <div className="mt-24 border border-slate-200 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="text-xs uppercase font-bold text-blue-600 tracking-widest">
+              Next Step
             </p>
+            <h4 className="text-lg font-semibold text-slate-900 mt-1">
+              Connect with our specialized centres
+            </h4>
           </div>
 
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-3 text-blue-400 hover:text-blue-300 text-lg font-bold"
+            className="bg-blue-600 px-8 py-4 rounded-xl text-white font-semibold flex items-center gap-2 hover:bg-blue-700 transition"
           >
-            Connect with the Centres
-            <ArrowUpRight size={20} />
+            Get Started
+            <ArrowUpRight size={18} />
           </a>
         </div>
 

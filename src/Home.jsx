@@ -13,11 +13,11 @@ export default function Home() {
     return (
         <div className="min-w-[100vw] min-h-screen overflow-x-hidden bg-white">
             <Header />
-            <Hero />
+            <Hero />  <Excellence/>
             <About />
             <Services />
             <VisionMission />
-            <Excellence/>
+          
 
             <Inspired />
             <StandardsCentre/>
