@@ -6,6 +6,7 @@ import Services from "./pages/Services";
 import Verify from "./pages/Verify";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
+import DemoEndedOverlay from "./components/DemoEnd";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/*" element={<Contact />} />
         </Routes>
+        <DemoEndedOverlay/>
     </BrowserRouter>
   );
 }
