@@ -20,7 +20,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/*" element={<Contact />} />
         </Routes>
-        <DemoEndedOverlay/>
+        {/* <DemoEndedOverlay/> */}
     </BrowserRouter>
   );
 }
