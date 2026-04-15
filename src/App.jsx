@@ -7,6 +7,9 @@ import Verify from "./pages/Verify";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 import DemoEndedOverlay from "./components/DemoEnd";
+import QualityPolicy from "./pages/QualityPolicy";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/verify" element={<Verify />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/quality-policy" element={<QualityPolicy />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/*" element={<Contact />} />
         </Routes>
         {/* <DemoEndedOverlay/> */}

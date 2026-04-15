@@ -30,9 +30,9 @@ export default function Contact() {
                     {/* 📱 TOP CONTACT CARDS */}
                     <div className="grid md:grid-cols-3 gap-6 mb-12">
                         {[
-                            { title: "General Support", icon: <Mail size={20} />, value: "iechelp2@gmail.com", msg: "Enquiry: Support" },
+                            { title: "General Support", icon: <Mail size={20} />, value: "certification@qmcouncil.com", msg: "Enquiry: Support" },
                             { title: "Verification Cell", icon: <Phone size={20} />, value: "+91 86069 99888", msg: "Enquiry: Verification" },
-                            { title: "Administrative Desk", icon: <Globe size={20} />, value: "iechelp2@gmail.com", msg: "Enquiry: Admin" }
+                            { title: "Administrative Desk", icon: <Globe size={20} />, value: "certification@qmcouncil.com", msg: "Enquiry: Admin" }
                         ].map((c, i) => (
                             <div key={i} className="bg-white p-6 border border-slate-200 rounded-lg shadow-sm group">
                                 <div className="flex items-center gap-4 mb-4">
@@ -55,36 +55,70 @@ export default function Contact() {
                         ))}
                     </div>
 
-                    {/* 🗺️ SPLIT SECTION: FORM & MAP */}
+                    {/* 🗺️ SPLIT SECTION */}
                     <div className="grid lg:grid-cols-2 gap-8 items-start">
                         
-                        {/* LEFT: OFFICIAL FORM (Now Half-Width on Desktop) */}
+                        {/* LEFT: FORM */}
                         <div className="bg-white border border-slate-200 shadow-xl rounded-xl p-8">
                             <div className="mb-6 border-b border-slate-100 pb-4">
-                                <h3 className="text-xl font-bold text-slate-900 uppercase tracking-tight text-sm">Official Request Form</h3>
-                                <p className="text-[11px] text-slate-500 mt-1">Submit formal documentation requests or complaints below.</p>
+                                <h3 className="text-xl font-bold text-slate-900 uppercase tracking-tight text-sm">
+                                    Official Request Form
+                                </h3>
+                                <p className="text-[11px] text-slate-500 mt-1">
+                                    Submit formal documentation requests or complaints below.
+                                </p>
                             </div>
 
-                            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                            <form
+                                className="space-y-4"
+                                onSubmit={(e) => {
+                                    e.preventDefault();
+
+                                    const form = e.target;
+                                    const name = form[0].value;
+                                    const email = form[1].value;
+                                    const subject = form[2].value;
+                                    const message = form[3].value;
+
+                                    const text = `New Contact Request:
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
+Message: ${message}`;
+
+                                    window.open(
+                                        `https://wa.me/${OFFICIAL_DIGITAL_ID}?text=${encodeURIComponent(text)}`,
+                                        "_blank"
+                                    );
+                                }}
+                            >
                                 <div className="grid md:grid-cols-2 gap-4">
                                     <div className="space-y-1">
-                                        <label className="text-[10px] font-bold uppercase text-slate-400 ml-1">Full Name</label>
-                                        <input type="text" className="w-full p-3 text-sm border border-slate-200 rounded bg-slate-50 focus:ring-1 focus:ring-blue-800 outline-none" placeholder="Required" />
+                                        <label className="text-[10px] font-bold uppercase text-slate-400 ml-1">
+                                            Full Name
+                                        </label>
+                                        <input type="text" required className="w-full p-3 text-sm border border-slate-200 rounded bg-slate-50 focus:ring-1 focus:ring-blue-800 outline-none" />
                                     </div>
                                     <div className="space-y-1">
-                                        <label className="text-[10px] font-bold uppercase text-slate-400 ml-1">Official Email</label>
-                                        <input type="email" className="w-full p-3 text-sm border border-slate-200 rounded bg-slate-50 focus:ring-1 focus:ring-blue-800 outline-none" placeholder="Required" />
+                                        <label className="text-[10px] font-bold uppercase text-slate-400 ml-1">
+                                            Official Email
+                                        </label>
+                                        <input type="email" required className="w-full p-3 text-sm border border-slate-200 rounded bg-slate-50 focus:ring-1 focus:ring-blue-800 outline-none" />
                                     </div>
                                 </div>
                                 
                                 <div className="space-y-1">
-                                    <label className="text-[10px] font-bold uppercase text-slate-400 ml-1">Subject / Reference No.</label>
+                                    <label className="text-[10px] font-bold uppercase text-slate-400 ml-1">
+                                        Subject / Reference No.
+                                    </label>
                                     <input type="text" className="w-full p-3 text-sm border border-slate-200 rounded bg-slate-50 focus:ring-1 focus:ring-blue-800 outline-none" />
                                 </div>
 
                                 <div className="space-y-1">
-                                    <label className="text-[10px] font-bold uppercase text-slate-400 ml-1">Request Summary</label>
-                                    <textarea rows="4" className="w-full p-3 text-sm border border-slate-200 rounded bg-slate-50 focus:ring-1 focus:ring-blue-800 outline-none"></textarea>
+                                    <label className="text-[10px] font-bold uppercase text-slate-400 ml-1">
+                                        Request Summary
+                                    </label>
+                                    <textarea rows="4" required className="w-full p-3 text-sm border border-slate-200 rounded bg-slate-50 focus:ring-1 focus:ring-blue-800 outline-none"></textarea>
                                 </div>
 
                                 <button className="w-full bg-slate-900 text-white py-4 rounded font-bold text-xs uppercase tracking-widest hover:bg-blue-800 transition-all shadow-md">
@@ -93,49 +127,66 @@ export default function Contact() {
                             </form>
                         </div>
 
-                        {/* RIGHT: MAP & OFFICE INFO */}
+                        {/* RIGHT: MAP + OFFICES */}
                         <div className="space-y-6">
-                            {/* Embedded Google Map */}
+                            
+                            {/* MAP */}
                             <div className="w-full h-[350px] rounded-xl overflow-hidden border border-slate-200 shadow-inner bg-slate-200">
                                 <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.119772544275!2d77.2065193!3d28.6111364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5d347eb1d3%3A0xdc2e9aa188a101f!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                                    src="https://www.google.com/maps?q=New+Delhi&output=embed"
                                     width="100%" 
                                     height="100%" 
                                     style={{ border: 0 }} 
-                                    allowFullScreen="" 
-                                    loading="lazy" 
-                                    referrerPolicy="no-referrer-when-downgrade">
+                                    loading="lazy">
                                 </iframe>
                             </div>
 
-                            {/* Office Details */}
-                            <div className="grid md:grid-cols-2 gap-4">
-                                <div className="bg-white p-5 border border-slate-200 rounded-lg">
-                                    <div className="flex items-center gap-2 text-blue-800 mb-2">
-                                        <MapPin size={16} />
-                                        <span className="text-[11px] font-bold uppercase tracking-wider">Secretariat</span>
-                                    </div>
-                                    <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                                        Quality Management Council,<br />
-                                        Administrative Block, New Delhi - 110001
-                                    </p>
+                            {/* OFFICES */}
+                            <div className="bg-white p-5 border border-slate-200 rounded-lg">
+                                <div className="flex items-center gap-2 text-blue-800 mb-2">
+                                    <MapPin size={16} />
+                                    <span className="text-[11px] font-bold uppercase tracking-wider">
+                                        Offices
+                                    </span>
                                 </div>
-                                <div className="bg-white p-5 border border-slate-200 rounded-lg">
-                                    <div className="flex items-center gap-2 text-blue-800 mb-2">
-                                        <Clock size={16} />
-                                        <span className="text-[11px] font-bold uppercase tracking-wider">Office Hours</span>
-                                    </div>
-                                    <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                                        Mon - Fri: 09:00 AM - 05:30 PM<br />
-                                        Closed on Public Holidays
-                                    </p>
-                                </div>
+
+                                <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                                    <strong>Central Office:</strong><br />
+                                    12/856, L1 Market, Kalkaji,<br />
+                                    New Delhi – 110019<br /><br />
+
+                                    <strong>Regional Office:</strong><br />
+                                    Door No: 2211, Tower 2, 2nd Floor,<br />
+                                    Hilite Business Park, Olavanna,<br />
+                                    Kozhikode, Kerala – 673014<br /><br />
+
+                                    <strong>Administrative Office & Training Centre:</strong><br />
+                                    Bodhi Bhoomi, QMC Centre,<br />
+                                    Kodenchery, Kozhikode,<br />
+                                    Kerala – 673580
+                                </p>
                             </div>
+
+                            {/* HOURS */}
+                            <div className="bg-white p-5 border border-slate-200 rounded-lg">
+                                <div className="flex items-center gap-2 text-blue-800 mb-2">
+                                    <Clock size={16} />
+                                    <span className="text-[11px] font-bold uppercase tracking-wider">
+                                        Office Hours
+                                    </span>
+                                </div>
+                                <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                                    Mon - Fri: 09:00 AM - 05:30 PM<br />
+                                    Closed on Public Holidays
+                                </p>
+                            </div>
+
                         </div>
 
                     </div>
                 </div>
             </section>
+
             <Footer />
         </div>
     );

@@ -67,7 +67,7 @@ export const Footer = () => {
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3">
                 <MapPin size={18} className="text-blue-500 shrink-0" />
-                <span>Regional Headquarters, <br />New Delhi, India</span>
+                <span>Regional Headquarters, <br />Kozhikode, Keralam, India</span>
               </li>
               <li className="flex gap-3">
                 <Phone size={18} className="text-blue-500 shrink-0" />
@@ -75,7 +75,7 @@ export const Footer = () => {
               </li>
               <li className="flex gap-3">
                 <Mail size={18} className="text-blue-500 shrink-0" />
-                <span>iechelp2@gmail.com</span>
+                <span>certification@qmcouncil.com</span>
               </li>
             </ul>
           </div>

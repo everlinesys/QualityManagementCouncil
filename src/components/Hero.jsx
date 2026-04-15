@@ -22,8 +22,8 @@ export const Hero = () => {
             </div>
 
             <h1 className="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4 uppercase tracking-tighter transition-all hover:translate-x-1 duration-500">
-              National Excellence in <br />
-              <span className="text-blue-700">Quality Management</span>
+              Nation towards <br />
+              <span className="text-blue-700">Global Standards</span>
             </h1>
 
             <p className="text-sm md:text-base text-slate-500 leading-relaxed max-w-lg mb-8">

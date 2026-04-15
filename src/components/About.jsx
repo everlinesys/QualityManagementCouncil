@@ -11,7 +11,7 @@ export const About = () => {
             {/* The Image Wrapper with a "Seal" overlay */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
               <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+                src="/office1.jpg"
                 alt="Council Boardroom"
                 className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700"
               />
