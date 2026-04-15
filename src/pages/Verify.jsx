@@ -36,7 +36,7 @@ export default function Verify() {
             </div>
 
             {/* UBML Branding Link */}
-            <a
+            {/* <a
               href="https://ubmarking.com/"
               target="_blank"
               rel="noopener noreferrer"
@@ -51,7 +51,7 @@ export default function Verify() {
                   ubmarking.com <ExternalLink size={12} />
                 </p>
               </div>
-            </a>
+            </a> */}
           </div>
         </div>
       </section>

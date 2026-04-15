@@ -87,7 +87,6 @@ export const Footer = () => {
            <span className="text-xs font-bold">ISO 9001:2015 CERTIFIED</span>
            <span className="text-xs font-bold">ISO 27001:2013 CERTIFIED</span>
            <span className="text-xs font-bold">ISO 20700 IMPLEMENTED</span>
-           <span className="text-xs font-bold">MCA REGISTERED</span>
         </div>
 
         {/* BOTTOM SECTION: COPYRIGHT */}
